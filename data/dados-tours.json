@@ -1,0 +1,191 @@
+{
+  "CITY TOUR": {
+    "descricao": "Horário de saída:\n09h30 do Parque Arauco parte o 1º ônibus.\nHorário de retorno:\n15h30 sai o último Ônibus do Parque Arauco que realiza a volta completa. As 18h todos os Ônibus encerram.",
+    "dias": "Todos os Dias",
+    "saida": "09h00 (Todos os Pax)",
+    "saidaPrivado": "",
+    "retorno": "12h30/13h",
+    "obs": "",
+    "tag": "Santiago"
+  },
+  "HOPON": {
+    "descricao": "Horário de Saída\n09h30 do Parque Arauco parte o 1º ônibus.\nHorário de retorno:\n15h30 sai o último Ônibus do Parque Arauco que realiza a volta completa. As 18h todos os Ônibus encerram.",
+    "dias": "Terça a Domingo",
+    "saida": "09h30",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Santiago"
+  },
+  "PORTILLO E LAGUNA DEL INCA": {
+    "descricao": "",
+    "dias": "Todos os Dias",
+    "saida": "05h00 (Centro) 05h20 (Providencia) ",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Montanha"
+  },
+  "SKI DAY": {
+    "descricao": "Skiday Valle\nSkiday El Colorado\nSkiday La PArva",
+    "dias": "Todos os Dias ",
+    "saida": "05h00 Centro, 05h20 (Providência) // Primeiro Pax",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Montanha"
+  },
+  "FARELLONES FULL DAY": {
+    "descricao": "Skiday Farellones: A agenda depende da disponibilidade do dia, ao chegar la tem que agendar as aulas, mas os horários são 11/12/13/14h e a pessoa tem direito a 2h de ski ou snow, e tem que se equipar 1 hora antes da aula!\nquem faz aula normalmente tem que comprar armário 10 mil pesos (obrigatório deixar um documento), pra guardar as botas e mochilas",
+    "dias": "Todos os Dias",
+    "saida": "06h00 (Primeiro Pax)",
+    "saidaPrivado": "07h00",
+    "retorno": "",
+    "obs": "Pax cadeirante: Pode entrar no parque nas seguintes condições: Sempre Acompanhado, em possibilidade alguma ficar desacompanhada pela familia, e há a necessidade da gente avisar para eles que vai um cadeirante, então precisa ser informado, e claramente não pode fazer as atividades do parque por segurança! ele pode ficar no restaurante que tem na entrada de cima do parque ou ficar na area de alimentação dentro do próprio parque",
+    "tag": "Montanha"
+  },
+  "FARELLONES FULL DAY Y ZERANDO SUNSET": {
+    "descricao": "",
+    "dias": "Nos dias que tem Zerando Sunset",
+    "saida": "06h00 (Primeiro Pax)",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "Sobe na Van do Farellones e Desce na Van do Zerando Sunset",
+    "tag": "Montanha"
+  },
+  "PANORAMICO": {
+    "descricao": "",
+    "dias": "",
+    "saida": "06h00 (Primeiro Pax)",
+    "saidaPrivado": "07h00",
+    "retorno": "",
+    "obs": "",
+    "tag": "Montanha"
+  },
+  "ZERANDO SUNSET": {
+    "descricao": "",
+    "dias": "Terça/Sexta = Garantido",
+    "saida": "10h20 (Primeiro Pax)",
+    "saidaPrivado": "11h30 ",
+    "retorno": "",
+    "obs": "Junho/Setembro = Terça e Sexta\nJulho/Agosto = Segunda, Terça, Quinta e Sexta",
+    "tag": "Montanha"
+  },
+  "CASA ZERANDO SUNSET": {
+    "descricao": "",
+    "dias": "Segunda/Quarta e Quinta",
+    "saida": "12h00 (Primeiro Pax)",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Montanha"
+  },
+  "AMOR Y PASTA": {
+    "descricao": "",
+    "dias": "Quarta á Sábado",
+    "saida": "18h Jantar/ 12H Almoço",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "O cliente vai ao local por conta própria, não há necessidade de colocar horário, cliente recebe o ticket via email",
+    "tag": "Santiago"
+  },
+  "VINA DEL MAR Y VALPARAISO": {
+    "descricao": "",
+    "dias": "",
+    "saida": "06h50 (Centro)/ 06h40 (Providência) Ultimo Pax",
+    "saidaPrivado": "08h00 (Por conta e risco do Pax)",
+    "retorno": "",
+    "obs": "",
+    "tag": "Litoral"
+  },
+  "ISLA NEGRA": {
+    "descricao": "",
+    "dias": "Quarta a Domingo",
+    "saida": "1h30 Antes da reserva de Undurraga",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Litoral"
+  },
+  "UNDURRAGA": {
+    "descricao": "",
+    "dias": "Todos os Dias",
+    "saida": "1h30 Antes da Reserva (Ultimo Pax)",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Vínicola"
+  },
+  "CONCHA Y TORO": {
+    "descricao": "",
+    "dias": "Todos os Dias",
+    "saida": "1h30 Antes da Reserva (Ultimo Pax)",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Vínicola"
+  },
+  "COUSINO MACUL": {
+    "descricao": "",
+    "dias": "",
+    "saida": "14H10 (Ultimo Pax)",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "So fazemos o AM se for privativo",
+    "tag": "Vínicola"
+  },
+  "CONCHA Y TORO NOCTURNO": {
+    "descricao": "",
+    "dias": "Terça a Sábado",
+    "saida": "1h30 Antes da Reserva (Ultimo Pax)",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Vínicola"
+  },
+  "HARAS DE PIRQUE SUNSET": {
+    "descricao": "",
+    "dias": "Terça a Sábado",
+    "saida": "15h (Ultimo Pax) ",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Vínicola"
+  },
+  "HARAS DE PIRQUE TOUR COM QUEIJOS": {
+    "descricao": "",
+    "dias": "Quarta e Sábado",
+    "saida": "14h30 (Ultimo Pax) ",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Vínicola"
+  },
+  "CHURRASCO EL PRINCIPAL": {
+    "descricao": "",
+    "dias": "Terça e Sexta-Feira",
+    "saida": "10h15 (Ultimo Pax)",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Vínicola"
+  },
+  "SUNSET EL PRINCIPAL": {
+    "descricao": "",
+    "dias": "Terça e Sexta-Feira",
+    "saida": "14h30 (Ultimo Pax)",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Vínicola"
+  },
+  "SAFARI RANCAGUA": {
+    "descricao": "",
+    "dias": "Terça a Domingo",
+    "saida": "1h50 Antes da Reserva (Ultimo Pax)",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": ""
+  }
+}
