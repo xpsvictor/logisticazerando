@@ -187,5 +187,59 @@
     "retorno": "",
     "obs": "",
     "tag": ""
+  },
+  "WINEDAY CASABLANCA 1": {
+    "descricao": "",
+    "dias": "Segunda-Feiras",
+    "saida": "1h30 Antes da Reserva",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Vínicola"
+  },
+  "WINEDAY CASABLANCA 2": {
+    "descricao": "",
+    "dias": "Sábado",
+    "saida": "1h30 Antes da Reserva",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Vínicola"
+  },
+  "WINEDAY PIRQUE": {
+    "descricao": "",
+    "dias": "Quarta",
+    "saida": "1h30 Antes da Reserva",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Vínicola"
+  },
+  "WINEDAY COLCHAGA PREMIUM 01": {
+    "descricao": "",
+    "dias": "Quinta-Feira",
+    "saida": "3H Antes da reserva (Ultimo Pax)",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Vínicola"
+  },
+  "WINEDAY COLCHAGA PREMIUM 02": {
+    "descricao": "",
+    "dias": "Sexta-feira",
+    "saida": "3h Antes da reserva (Ultimo Pax)",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Vínicola"
+  },
+  "WINEDAY MAIPO": {
+    "descricao": "",
+    "dias": "Terça-Feira",
+    "saida": "1h40 a 2h( Do ultimo Pax)  (Consultar com a Mari) ",
+    "saidaPrivado": "",
+    "retorno": "",
+    "obs": "",
+    "tag": "Vínicola"
   }
 }
