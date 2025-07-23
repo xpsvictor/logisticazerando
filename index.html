@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tour Logística - Painel Interno</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1400px;
+    }
+
+    .card {
+      background: #111;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transform: perspective(1000px) rotateY(0deg);
+      transition: transform 0.5s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: perspective(1000px) rotateY(3deg);
+      box-shadow: 0 15px 40px rgba(255,255,255,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 15px;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      width: 90%;
+      color: #fff;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+    }
+
+    .modal-content label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    .modal-content input,
+    .modal-content textarea,
+    .modal-content select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: none;
+      background: #333;
+      color: #fff;
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .tag-selector button {
+      margin: 5px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      background: #333;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .tag-selector button.active {
+      background: #1e90ff;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="exportarJSON()" style="margin: 20px; padding: 10px 20px; border: none; border-radius: 10px; background: #1e90ff; color: #fff; cursor: pointer;">
+  Exportar JSON
+</button>
+
+  <h1>Painel de Tours - Logística</h1>
+
+  <div class="card-container" id="cardContainer"></div>
+
+  <div class="modal" id="tourModal">
+    <div class="modal-content">
+      <h2 id="modalTourName"></h2>
+
+      <label for="descricao">Descrição</label>
+      <textarea id="descricao" rows="3"></textarea>
+
+      <label for="dias">Dias de Operação</label>
+      <input type="text" id="dias" placeholder="Ex: Segunda a Sábado">
+
+      <label for="saida">Horário de Saída</label>
+      <input type="text" id="saida" placeholder="Ex: 08:00 ou 1h30 antes da reserva">
+
+      <label for="saidaPrivado">Horário Máximo (Privativo)</label>
+      <input type="text" id="saidaPrivado" placeholder="Ex: 09:00 ou Flexível conforme reserva">
+
+      <label for="retorno">Horário de Retorno</label>
+      <input type="text" id="retorno" placeholder="Ex: 18:00 ou Aproximado">
+
+      <label for="obs">Observações</label>
+      <textarea id="obs" rows="2"></textarea>
+
+      <label>Tipo de Tour</label>
+      <div class="tag-selector">
+        <button onclick="selectTag(this)">Montanha</button>
+        <button onclick="selectTag(this)">Litoral</button>
+        <button onclick="selectTag(this)">Santiago</button>
+        <button onclick="selectTag(this)">Vínicola</button>
+      </div>
+
+      <div class="modal-buttons">
+        <button onclick="closeModal()">Fechar</button>
+        <button onclick="saveInfo()">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tours = [
+      "CITY TOUR",
+      "HOPON",
+      "PORTILLO E LAGUNA DEL INCA",
+      "SKI DAY",
+      "FARELLONES FULL DAY",
+      "FARELLONES FULL DAY Y ZERANDO SUNSET",
+      "PANORAMICO",
+      "ZERANDO SUNSET",
+      "CASA ZERANDO SUNSET",
+      "AMOR Y PASTA",
+      "VINA DEL MAR Y VALPARAISO",
+      "ISLA NEGRA",
+      "UNDURRAGA",
+      "CONCHA Y TORO",
+      "COUSINO MACUL",
+      "CONCHA Y TORO NOCTURNO",
+      "HARAS DE PIRQUE SUNSET",
+      "HARAS DE PIRQUE TOUR COM QUEIJOS",
+      "CHURRASCO EL PRINCIPAL",
+      "SUNSET EL PRINCIPAL",
+      "SAFARI RANCAGUA",
+      "WINEDAY CASABLANCA 1",
+      "WINEDAY CASABLANCA 2",
+      "WINEDAY PIRQUE",
+      "WINEDAY COLCHAGA PREMIUM 01",
+      "WINEDAY COLCHAGA PREMIUM 02",
+      "WINEDAY MAIPO"
+    ];
+
+    const cardContainer = document.getElementById('cardContainer');
+
+    tours.forEach(tour => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      const imagePath = `./src/${tour.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/gi, '')}.jpg`;
+      card.innerHTML = `
+        <img src="${imagePath}" alt="${tour}" onerror="this.src='./src/default.jpg'">
+        <h3>${tour}</h3>
+      `;
+      card.onclick = () => openModal(tour);
+      cardContainer.appendChild(card);
+    });
+
+    function openModal(tourName) {
+      document.getElementById('modalTourName').textContent = tourName;
+      const saved = JSON.parse(localStorage.getItem(tourName) || '{}');
+
+      document.getElementById('descricao').value = saved.descricao || '';
+      document.getElementById('dias').value = saved.dias || '';
+      document.getElementById('saida').value = saved.saida || '';
+      document.getElementById('saidaPrivado').value = saved.saidaPrivado || '';
+      document.getElementById('retorno').value = saved.retorno || '';
+      document.getElementById('obs').value = saved.obs || '';
+
+      document.querySelectorAll('.tag-selector button').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent === saved.tag) btn.classList.add('active');
+      });
+
+      document.getElementById('tourModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('tourModal').style.display = 'none';
+    }
+
+    function selectTag(button) {
+      document.querySelectorAll('.tag-selector button').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+    }
+
+    function saveInfo() {
+      const tourName = document.getElementById('modalTourName').textContent;
+      const data = {
+        descricao: document.getElementById('descricao').value,
+        dias: document.getElementById('dias').value,
+        saida: document.getElementById('saida').value,
+        saidaPrivado: document.getElementById('saidaPrivado').value,
+        retorno: document.getElementById('retorno').value,
+        obs: document.getElementById('obs').value,
+        tag: document.querySelector('.tag-selector button.active')?.textContent || ''
+      };
+      localStorage.setItem(tourName, JSON.stringify(data));
+      alert("Informações salvas localmente!");
+    }
+  </script>
+  <script>
+  function exportarJSON() {
+    const dadosExportados = {};
+    tours.forEach(tour => {
+      const data = localStorage.getItem(tour);
+      if (data) {
+        dadosExportados[tour] = JSON.parse(data);
+      }
+    });
+
+    const blob = new Blob([JSON.stringify(dadosExportados, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "dados-tours.json";
+    link.click();
+
+    URL.revokeObjectURL(url);
+  }
+</script>
+<script>
+  async function importarJSON() {
+    try {
+      const resposta = await fetch('./data/dados-tours.json');
+      if (!resposta.ok) {
+        console.warn("dados-tours.json não encontrado.");
+        return;
+      }
+      const dados = await resposta.json();
+      for (const [tour, info] of Object.entries(dados)) {
+        localStorage.setItem(tour, JSON.stringify(info));
+      }
+      console.log("Dados importados do JSON para o localStorage.");
+    } catch (erro) {
+      console.error("Erro ao importar JSON:", erro);
+    }
+  }
+
+  // Executar ao carregar a página
+  window.addEventListener('DOMContentLoaded', importarJSON);
+</script>
+
+
+</body>
+</html>
